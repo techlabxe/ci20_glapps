@@ -10,7 +10,7 @@ $ g++ main_gl2.cpp -o app_with_gl2 -I. -lGL -lX11
 
 Mode X11+EGL+GLES2.0
 
-$ g++ main_gl2.cpp -o app_with_gles -I. -lGLESv2 -lEGL -lX11
+$ g++ main_gl2.cpp -o app_with_gles -DUSE_GLES2 -I. -lGLESv2 -lEGL -lX11
 
 
 
