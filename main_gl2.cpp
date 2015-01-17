@@ -260,7 +260,9 @@ const GLchar* srcVertexShader[] =
  
 const GLchar* srcFragmentShader[] =
 {
+#ifdef USE_GLES2
   "precision mediump float;\n"
+#endif
   "varying vec4 vsout_color0;\n"
   "void main() {\n"
   "  gl_FragColor = vsout_color0;\n"
