@@ -183,6 +183,21 @@ int main( int argc, char* argv[] ) {
 	fprintf( stderr, "R:%d, G:%d, B:%d, A:%d, Depth:%d\n", rb, gb, bb, ab, db );
 	fprintf( stderr, "GL_VERSION = %s\n", (const char*)glGetString( GL_VERSION ) );
 	fprintf( stderr, "GL_RENDERER = %s\n", (const char*)glGetString( GL_RENDERER ) );
+	
+#ifndef USE_GLES2
+	const char* pStr = (const char*)glGetString( GL_EXTENSIONS );
+	char* pExt = (char*)malloc( strlen(pStr)+1 );
+	strcpy( pExt, pStr );
+
+	do {
+		char* p = strstr( pExt, " " );
+		if( p ) {
+			*p = '\0';
+		}
+		fprintf( stderr, "%s\n", pExt );
+		pExt = p ? p+1 : 0;
+	} while( pExt );
+#endif
 
 	CreateResource();
 
